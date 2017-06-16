@@ -1,0 +1,5 @@
+provision/mysql/data
+vendor
+dist
+node_modules
+composer.lock

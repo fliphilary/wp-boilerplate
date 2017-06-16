@@ -1,0 +1,48 @@
+{
+  "name": "wordpress/boilerplate",
+  "description": "",
+  "keywords": ["WordPress"],
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Hilary Osborne"
+    }
+  ],
+  "type": "project",
+  "repositories":[
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Reactive\\": "src/reactive"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "require": {
+    "php": ">=5.6.4",
+    "johnpbloch/wordpress-core-installer": "~0.2",
+    "johnpbloch/wordpress-core": "^4.7.3",
+    "twig/twig": "^2.0",
+    "vlucas/phpdotenv": "^2.4",
+    "mailgun/mailgun-php": "^2.3",
+    "php-http/curl-client": "^1.7",
+    "guzzlehttp/psr7": "^1.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.3.*"
+  },
+  "extra":{
+    "installer-paths":{
+      "public/content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "public/content/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": {
+      "johnpbloch/wordpress-core": "public/cms"
+    }
+  }
+}
