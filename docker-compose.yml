@@ -2,6 +2,8 @@ version: '2'
 services:
   web:
     image: web
+    depends_on:
+      - database
     build:
       context: .
       dockerfile: provision/apache/Dockerfile
@@ -9,26 +11,21 @@ services:
       - DB_NAME=wordpress
       - DB_USER=wordpress
       - DB_PASSWORD=swordfish
-      - DB_HOST=database
+      - DB_HOST=database:3306
       - WP_HOME=http://localhost:5050/
       - WP_DEBUG=0
       - WP_SITEURL=http://localhost:5050/cms
     ports:
-      -  5050:80
+      - 5050:80
     volumes:
       - .:/var/www/html
       - ./provision/apache/sites-available:/etc/apache2/sites-available
-      - ./provision/apache/php:/usr/local/etc/php/
-    links:
-      - database
   database:
-    image: mariadb
+    image: mysql
     environment:
-     - MYSQL_USER=wordpress
-     - MYSQL_PASSWORD=swordfish
-     - MYSQL_ROOT_PASSWORD=swordfish
-     - MYSQL_DATABASE=staging
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=swordfish
+      - MYSQL_ROOT_PASSWORD=swordfish
+      - MYSQL_DATABASE=wordpress
     volumes:
-     - ./provision/mysql/data:/var/lib/mysql
-    expose:
-     - 3306
+      - ./provision/mysql/data:/var/lib/mysql

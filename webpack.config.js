@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         test: /\.(svg|woff|woff2|ttf|eot|otf)(\?.*$|$)/,
-        exclude: [/node_modules/,/src\/images/],
+        exclude: [/src\/images/],
         loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
       }
     ]

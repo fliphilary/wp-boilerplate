@@ -23,6 +23,7 @@
     "extract-loader": "^0.1.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "*",
+    "font-awesome": "^4.7.0",
     "icon-maker-loader": "^0.1.13",
     "jquery": "^3.2.1",
     "jsonschema": "^1.1.1",
