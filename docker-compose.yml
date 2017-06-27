@@ -2,8 +2,8 @@ version: '2'
 services:
   web:
     image: web
-    depends_on:
-      - database
+    links:
+      - database:mysql
     build:
       context: .
       dockerfile: provision/apache/Dockerfile
@@ -11,7 +11,7 @@ services:
       - DB_NAME=wordpress
       - DB_USER=wordpress
       - DB_PASSWORD=swordfish
-      - DB_HOST=database:3306
+      - DB_HOST=database
       - WP_HOME=http://localhost:5050/
       - WP_DEBUG=0
       - WP_SITEURL=http://localhost:5050/cms
