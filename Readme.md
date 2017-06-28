@@ -7,7 +7,7 @@ Run `composer install`
 
 Run `npm install`
 
-Run `npm build:dev`
+Run `npm run build:dev`
 
 Run `sudo docker-compose build`
 
