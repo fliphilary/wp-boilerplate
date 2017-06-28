@@ -13,7 +13,7 @@ if (file_exists($autoload = $rootPath.DS.'vendor'.DS.'autoload.php')) {
 	require_once $autoload;
 }
 
-$file = '../.env';
+$file = '.env';
 
 $env = new \Dotenv\Dotenv($rootPath, $file);
 
