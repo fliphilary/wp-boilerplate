@@ -6,3 +6,6 @@ composer.lock
 public/cms
 advanced-custom-fields-pro
 .env
+docker-compose.yml
+access.log
+error.log

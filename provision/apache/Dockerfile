@@ -7,6 +7,7 @@ ENV TZ "Australia/Brisbane"
 RUN echo $TZ > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && apt-get install -y \
+        net-tools \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -17,6 +18,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) mysqli pdo_mysql
 
 RUN a2enmod rewrite \
+  && a2enmod ssl \
+  && a2ensite default-ssl \
   && service apache2 restart
 
 RUN usermod -u 1000 www-data
