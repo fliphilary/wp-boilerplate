@@ -19,7 +19,6 @@ services:
       - 5050:80
     volumes:
       - .:/var/www/html
-      - ./docker/apache/certs/:/etc/apache2/ssl/
       - ./provision/apache/sites-available:/etc/apache2/sites-available
   database:
     image: mysql
